@@ -1,4 +1,5 @@
-// This file is required by karma.conf.js and loads recursively all the .spec and framework files
+/* This file is required by karma.conf.js and loads recursively all the .spec and framework files */
+/* Este arquivo é requerido pelo karma.conf.js e carrega recursivamente todos os arquivos .spec e framework */
 
 import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
