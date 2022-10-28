@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { catchError, Observable, of } from 'rxjs';
 
 import { ProjectsModel } from '../models/projects.model';
 import { ProjectsService } from '../services/projects.service';
+import { ErrorDialogComponent } from './../../shared/components/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-projects',
@@ -14,15 +16,23 @@ export class ProjectsComponent implements OnInit {
   projects$: Observable<ProjectsModel[]>;
   displayedColumns = ['name', 'category'];
 
-  constructor(private ProjectsService: ProjectsService) {
-    /* TODO document why this constructor is empty */
+  constructor(
+    private ProjectsService: ProjectsService,
+    public dialog: MatDialog) {
+
     this.projects$ = this.ProjectsService.list()
     .pipe(
       catchError(error => {
-        console.log(error);
+        this.onError('Error ao carregar os projetos.');
         return of([])
       })
     );
+  }
+
+  onError(erroMsg: string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: erroMsg,
+    });
   }
 
   ngOnInit(): void {

@@ -9,7 +9,7 @@ import { delay, first, tap } from 'rxjs';
 export class ProjectsService {
 
   //Caminho da API
-  private readonly API = '/assets/aprojects.json';
+  private readonly API = '/assets/projects.json';
 
   //Injeção de dependencia pra acesso a API
   constructor(private httpClient: HttpClient) { }
@@ -17,7 +17,7 @@ export class ProjectsService {
   list() {
     return this.httpClient.get<ProjectsModel[]>(this.API).pipe(
       first(),
-      delay(5000),
+      delay(3000),
       tap(projects => console.log(projects))
     );
   }
