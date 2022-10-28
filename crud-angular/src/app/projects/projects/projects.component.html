@@ -1,5 +1,11 @@
+<mat-card>Simple card</mat-card>
+
 <table mat-table [dataSource]="projects" class="mat-elevation-z8 demo-table">
   <!-- Position Column -->
+  <ng-container matColumnDef="_id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let projects"> {{projects._id}} </td>
+  </ng-container>
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Nome </th>
     <td mat-cell *matCellDef="let projects"> {{projects.name}} </td>
