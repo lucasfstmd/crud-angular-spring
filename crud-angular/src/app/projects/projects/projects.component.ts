@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsModel } from '../models/projects.model';
+import { ProjectsService } from '../services/projects.service';
 
 @Component({
   selector: 'app-projects',
@@ -8,10 +9,16 @@ import { ProjectsModel } from '../models/projects.model';
 })
 export class ProjectsComponent implements OnInit {
 
-  projects: ProjectsModel[] = [{_id: "1", name: "Angular", category: "Front-End"}];
+  projects: ProjectsModel[] = [];
   displayedColumns = ['name', 'category'];
 
-  constructor() { /* TODO document why this constructor is empty */  }
+  ProjectsService: ProjectsService;
+
+  constructor() {
+   /* TODO document why this constructor is empty */
+    this.ProjectsService = new ProjectsService();
+    this.projects = this.ProjectsService.list();
+  }
 
   ngOnInit(): void {
     // TODO document why this method 'ngOnInit' is empty
