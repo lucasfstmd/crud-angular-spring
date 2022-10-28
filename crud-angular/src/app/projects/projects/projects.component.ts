@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
+
 import { ProjectsModel } from '../models/projects.model';
 import { ProjectsService } from '../services/projects.service';
 
@@ -9,12 +10,19 @@ import { ProjectsService } from '../services/projects.service';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit {
-  projects: Observable<ProjectsModel[]>;
+
+  projects$: Observable<ProjectsModel[]>;
   displayedColumns = ['name', 'category'];
 
   constructor(private ProjectsService: ProjectsService) {
     /* TODO document why this constructor is empty */
-    this.projects = this.ProjectsService.list();
+    this.projects$ = this.ProjectsService.list()
+    .pipe(
+      catchError(error => {
+        console.log(error);
+        return of([])
+      })
+    );
   }
 
   ngOnInit(): void {

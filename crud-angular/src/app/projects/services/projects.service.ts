@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProjectsModel } from '../models/projects.model';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs';
+import { delay, first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,15 @@ import { tap } from 'rxjs';
 export class ProjectsService {
 
   //Caminho da API
-  private readonly API = '/assets/projects.json';
+  private readonly API = '/assets/aprojects.json';
 
   //Injeção de dependencia pra acesso a API
   constructor(private httpClient: HttpClient) { }
 
   list() {
     return this.httpClient.get<ProjectsModel[]>(this.API).pipe(
+      first(),
+      delay(5000),
       tap(projects => console.log(projects))
     );
   }
