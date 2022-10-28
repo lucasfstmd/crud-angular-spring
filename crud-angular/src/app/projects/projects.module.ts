@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 
 import { ProjectsRoutingModule } from './projects-routing.module';
-import { ProjctsComponent } from './projects/projects.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 
 
 @NgModule({
   declarations: [
-    ProjctsComponent
+    ProjectsComponent
   ],
   imports: [
     CommonModule,
