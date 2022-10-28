@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ProjectsModel } from '../models/projects.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
 
-  constructor() { }
+  //Injeção de dependencia pra acesso a API
+  constructor(private httpClient: HttpClient) { }
 
   list(): ProjectsModel[] {
     return [

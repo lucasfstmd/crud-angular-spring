@@ -12,16 +12,11 @@ export class ProjectsComponent implements OnInit {
   projects: ProjectsModel[] = [];
   displayedColumns = ['name', 'category'];
 
-  ProjectsService: ProjectsService;
-
-  constructor() {
-   /* TODO document why this constructor is empty */
-    this.ProjectsService = new ProjectsService();
-    this.projects = this.ProjectsService.list();
-  }
+  constructor(private ProjectsService: ProjectsService) { }
+    /* TODO document why this constructor is empty */
 
   ngOnInit(): void {
     // TODO document why this method 'ngOnInit' is empty
-
+    this.projects = this.ProjectsService.list();
   }
 }
