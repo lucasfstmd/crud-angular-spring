@@ -1,4 +1,4 @@
-package com.api.model;
+package com.api.crudSpring.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

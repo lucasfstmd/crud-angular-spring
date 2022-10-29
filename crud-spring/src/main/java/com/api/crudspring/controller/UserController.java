@@ -1,9 +1,10 @@
-package com.api.controller;
+package com.api.crudSpring.controller;
 
-import com.api.model.UserModel;
-import com.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.api.crudSpring.model.UserModel;
+import com.api.crudSpring.repository.UserRepository;
 
 import java.util.List;
 
