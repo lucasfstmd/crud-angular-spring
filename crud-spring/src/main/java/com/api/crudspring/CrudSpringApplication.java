@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-package com.api.crudspring;
-=======
 package com.api.crudSpring;
->>>>>>> Back-End
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
