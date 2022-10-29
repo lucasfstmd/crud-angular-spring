@@ -5,13 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-=======
 import { AppMaterialModule } from './shared/app-material/app-material.module';
 
-
->>>>>>> front-end
 
 @NgModule({
   declarations: [
@@ -20,13 +15,10 @@ import { AppMaterialModule } from './shared/app-material/app-material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
-    BrowserAnimationsModule
-=======
+    BrowserAnimationsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppMaterialModule
->>>>>>> front-end
   ],
   providers: [],
   bootstrap: [AppComponent]
