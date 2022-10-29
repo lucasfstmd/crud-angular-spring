@@ -17,7 +17,6 @@ export class ProjectsService {
   list() {
     return this.httpClient.get<ProjectsModel[]>(this.API).pipe(
       first(),
-      delay(3000),
       tap(projects => console.log(projects))
     );
   }
