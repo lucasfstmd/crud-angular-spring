@@ -107,6 +107,10 @@
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "5cde7b58-effb-4734-8837-0a08943072eb"
+=======
+    "analytics": "bfb9aa96-0a9b-4acd-b4f1-b0eca817fd0a"
+>>>>>>> front-end
   }
 }
