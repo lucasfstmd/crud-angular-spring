@@ -1,7 +1,9 @@
+import { ProjectsModel } from './../../models/projects.model';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 import { ProjectsService } from '../../services/projects.service';
 
@@ -18,14 +20,22 @@ export class ProjectsFormComponent implements OnInit {
     private formBilder: FormBuilder,
     private service: ProjectsService,
     private snackBar: MatSnackBar,
-    private location: Location) {
+    private location: Location,
+    private route: ActivatedRoute) {
       this.form = this.formBilder.group({
+        _id: [null],
         name: [null],
         category: [null]
       })
     }
 
   ngOnInit(): void {
+    const projects: ProjectsModel = this.route.snapshot.data['projects'];
+    this.form.setValue({
+      _id: projects._id,
+      name: projects.name,
+      category: projects.category
+    })
   }
 
   onSubmit(){
