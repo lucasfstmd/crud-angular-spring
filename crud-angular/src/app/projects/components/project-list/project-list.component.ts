@@ -1,4 +1,4 @@
-import { ProjectsModel } from './../models/projects.model';
+import { ProjectsModel } from '../../models/projects.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 

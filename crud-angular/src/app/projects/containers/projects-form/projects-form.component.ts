@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 
-import { ProjectsService } from '../services/projects.service';
+import { ProjectsService } from '../../services/projects.service';
 
 @Component({
   selector: 'app-projects-form',
