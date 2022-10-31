@@ -6,7 +6,7 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from './../shared/shared.module';
 import { ProjectsFormComponent } from './projects-form/projects-form.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
-import { ProjectsComponent } from './projects/projects.component';
+import { ProjectsComponent } from './containers/projects/projects.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 
 

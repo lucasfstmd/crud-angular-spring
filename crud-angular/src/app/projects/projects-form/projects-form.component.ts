@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Location } from '@angular/common';
 
 import { ProjectsService } from '../services/projects.service';
 
@@ -16,7 +17,8 @@ export class ProjectsFormComponent implements OnInit {
   constructor(
     private formBilder: FormBuilder,
     private service: ProjectsService,
-    private snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar,
+    private location: Location) {
       this.form = this.formBilder.group({
         name: [null],
         category: [null]
@@ -35,7 +37,6 @@ export class ProjectsFormComponent implements OnInit {
   }
 
   onCancel(){
-    console.log(this.form.value)
-
+    this.location.back()
   }
 }

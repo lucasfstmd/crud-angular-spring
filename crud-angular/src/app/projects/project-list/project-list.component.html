@@ -1,0 +1,31 @@
+<mat-table [dataSource]="projects">
+  <ng-container matColumnDef="_id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let projects"> {{projects._id}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+    <mat-cell *matCellDef="let projects"> {{projects.name}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef> Categoria </mat-header-cell>
+    <mat-cell *matCellDef="let projects"> {{projects.category}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+      <button mat-mini-fab color="accent" aria-label="Adicionar Projetos">
+        <mat-icon (click) = "onAdd()">add</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let projects" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Editar Projetos">
+        <mat-icon (click) = "onEdit()">edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" aria-label="Deletar Projetos">
+        <mat-icon (click) = "onDelet()">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
