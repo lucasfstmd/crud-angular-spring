@@ -33,9 +33,19 @@ public class UserController {
         return repository.findById(Id).map(record -> ResponseEntity.ok().body(record)).orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping(path = "/{Id}")
+    @DeleteMapping(path = "delete/{Id}")
     public ResponseEntity delet(@PathVariable("Id") Integer Id){
         return repository.findById(Id).map(record -> { repository.deleteById(Id);
                     return ResponseEntity.ok().build();}).orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping(path = "update/{Id}")
+    public ResponseEntity update(@PathVariable("Id") Integer Id, @RequestBody UserModel user){
+        return repository.findById(Id).map(record -> {
+            record.setName(user.getName());
+            record.setCategory(user.getCategory());
+            UserModel update = repository.save(record);
+            return ResponseEntity.ok().body(update);
+        }).orElse(ResponseEntity.notFound().build());
     }
 }
