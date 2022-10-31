@@ -10,6 +10,7 @@ export class ProjectsService {
 
   //Caminho da API
   private readonly API = 'api/list';
+  private readonly API_SAVE = 'api/save'
 
   //Injeção de dependencia pra acesso a API
   constructor(private httpClient: HttpClient) { }
@@ -20,5 +21,10 @@ export class ProjectsService {
       tap(projects => console.log(projects))
     );
   }
+
+  save(record: ProjectsModel){
+    return this.httpClient.post<ProjectsModel>(this.API_SAVE, record);
+  }
+
 }
  /* Classe de service independente, que passa as dependencias para os componentes*/

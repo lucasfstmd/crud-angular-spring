@@ -1,1 +1,25 @@
-<p>projects-form works!</p>
+<mat-card>
+  <mat-toolbar color="primary">
+    <span> Adicionar </span>
+  </mat-toolbar>
+  <form [formGroup]="form">
+    <p>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="null">Selecionar</mat-option>
+          <mat-option value="Front-End">Front-End</mat-option>
+          <mat-option value="Back-End">Back-End</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onSubmit()"> Salvar </button>
+      <button mat-raised-button (click)="onCancel()"> Cancelar </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

@@ -5,6 +5,7 @@ import { catchError, Observable, of } from 'rxjs';
 import { ProjectsModel } from '../models/projects.model';
 import { ProjectsService } from '../services/projects.service';
 import { ErrorDialogComponent } from './../../shared/components/error-dialog/error-dialog.component';
+import { Routes, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
@@ -18,7 +19,9 @@ export class ProjectsComponent implements OnInit {
 
   constructor(
     private ProjectsService: ProjectsService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute) {
 
     this.projects$ = this.ProjectsService.list()
     .pipe(
@@ -37,5 +40,14 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     // TODO document why this method 'ngOnInit' is empty
+  }
+
+  onAdd(){
+    //Rota para adicionar projetos || Esse relative é para não duplicar o dominio anterior, para manutenção
+    this.router.navigate(['new'], {relativeTo: this.route})
+  }
+
+  inEdit(projects: ProjectsModel){
+
   }
 }

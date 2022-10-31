@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { ProjectsService } from '../services/projects.service';
 
 @Component({
   selector: 'app-projects-form',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsFormComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+
+  constructor(
+    private formBilder: FormBuilder,
+    private service: ProjectsService,
+    private snackBar: MatSnackBar) {
+      this.form = this.formBilder.group({
+        name: [null],
+        category: [null]
+      })
+    }
 
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    this.service.save(this.form.value)
+    .subscribe(result => console.log(result), error => {
+      this.snackBar.open('Erro ao salvar Projeto', '', {duration: 5000})
+    });
+
+  }
+
+  onCancel(){
+    console.log(this.form.value)
+
+  }
 }
