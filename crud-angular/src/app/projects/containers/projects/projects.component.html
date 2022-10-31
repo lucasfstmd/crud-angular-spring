@@ -2,7 +2,8 @@
   <mat-toolbar color="primary"> Projetos </mat-toolbar>
   <div class="column-flex mat-elevation-z8 demo-table">
     <app-project-list *ngIf="projects$ | async as projects; else loading " [projects]="projects"
-    (add)="onAdd()"></app-project-list>
+    (add)="onAdd()"
+    (edit)="onEdit($event)"></app-project-list>
     <div>
     </div>
     <ng-template #loading>

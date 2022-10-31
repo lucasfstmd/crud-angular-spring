@@ -48,7 +48,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   onEdit(projects: ProjectsModel){
-
+    this.router.navigate(['update', projects._id], {relativeTo: this.route})
   }
 
   onDelet(){

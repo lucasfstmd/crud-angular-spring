@@ -19,7 +19,7 @@
     </mat-header-cell>
     <mat-cell *matCellDef="let projects" class="action-column">
       <button mat-icon-button color="primary" aria-label="Editar Projetos">
-        <mat-icon (click) = "onEdit()">edit</mat-icon>
+        <mat-icon (click) = "onEdit(projects)">edit</mat-icon>
       </button>
       <button mat-icon-button color="warn" aria-label="Deletar Projetos">
         <mat-icon (click) = "onDelet()">delete</mat-icon>

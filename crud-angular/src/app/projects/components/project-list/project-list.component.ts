@@ -11,6 +11,7 @@ export class ProjectListComponent implements OnInit {
 
   @Input() projects: ProjectsModel[] = [];
   @Output() add = new EventEmitter(false);
+  @Output() edit = new EventEmitter(false);
 
   readonly displayedColumns = ['_id','name', 'category', 'actions'];
 
@@ -23,8 +24,8 @@ export class ProjectListComponent implements OnInit {
     this.add.emit(true);
   }
 
-  onEdit(){
-    console.log('edit')
+  onEdit(projects: ProjectsModel){
+    this.edit.emit(projects);
   }
 
   onDelet(){
